@@ -1,10 +1,12 @@
 package com.api.guispin.yogamanager.config;
 
+import com.api.guispin.yogamanager.security.NoRedirectStrategy;
 import com.api.guispin.yogamanager.security.TokenAuthenticationFilter;
 import com.api.guispin.yogamanager.security.TokenAuthenticationProvider;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -26,6 +28,7 @@ import static org.springframework.security.config.http.SessionCreationPolicy.STA
 
 
 @Configuration
+@Profile("!no-security")
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled=true)
 public class SecurityConfig  extends WebSecurityConfigurerAdapter {
@@ -86,7 +89,7 @@ public class SecurityConfig  extends WebSecurityConfigurerAdapter {
     @Bean
     SimpleUrlAuthenticationSuccessHandler successHandler() {
         final SimpleUrlAuthenticationSuccessHandler successHandler = new SimpleUrlAuthenticationSuccessHandler();
-       // successHandler.setRedirectStrategy(new NoRedirectStrategy());
+        successHandler.setRedirectStrategy(new NoRedirectStrategy());
         return successHandler;
     }
 

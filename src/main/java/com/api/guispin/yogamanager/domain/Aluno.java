@@ -1,29 +1,28 @@
 package com.api.guispin.yogamanager.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 
-import javax.annotation.Generated;
+import java.time.LocalDateTime;
+import java.util.List;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Aluno {
 
     @Id
     private String id;
     private String nome;
+    private Endereco endereco;
+    private List<Telefone> telefones;
+    private String numeroCPF;
+    private String numeroRG;
+    private LocalDateTime dataCadastro;
 
 
-    public String getNome() {
-        return nome;
-    }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 }
