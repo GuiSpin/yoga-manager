@@ -31,4 +31,7 @@ public class AlunoController {
         alunoService.deleteAluno(id);
     }
 
+    @PutMapping("/alunos")
+    public void updateAluno(@RequestBody Aluno aluno) { alunoService.updateAluno(aluno); }
+
 }

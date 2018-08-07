@@ -20,6 +20,7 @@ public class Aluno {
     private List<Telefone> telefones;
     private String numeroCPF;
     private String numeroRG;
+    private String email;
     private LocalDateTime dataCadastro;
 
 

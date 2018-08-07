@@ -36,6 +36,10 @@ public class AlunoService  {
         return new Alunos(alunoList);
     }
 
+    public void updateAluno (Aluno aluno) {
+        alunoRepository.save(aluno);
+    }
+
     public void deleteAluno(String id) {
         alunoRepository.deleteById(id);
     }
